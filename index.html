@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function cmpr(first,second)
+        {
+            if(first==second)
+               return 0;
+            else if(first>second)
+               return 1;
+            else
+              return -1;
+        }
+        function fact(number)
+        {
+            let fact=1;
+            for (let index = 1; index <= number; index++) {
+                fact*=index;
+            }
+            return fact;
+        }
+        function digits(one,two,three)
+        {
+            let res;
+            res=one;
+            res*=10;
+            res+=two;
+            res*=10;
+            res+=three;
+            return res;
+        }
+        function S(side1,...side2)
+        {
+            if(side2==0)
+                return side1*side1;
+            else
+               return side2*side1;
+        }
+        function isPerfect(number)
+        {
+            let check=0;
+            for (let index = number/2; index >0 ; index--) {
+                if(number%index==0)
+                   check+=index;
+                
+            }
+            if(check==number)
+               return true;
+            else
+               return false;
+        }
+        function perfectDiap(min,max)
+        {
+            document.write("Диапозон совершенных чисел: ");
+            for (let index = min; index <= max; index++) {
+                if(isPerfect(index))
+                   document.write(index," ");
+                
+            }
+            document.write("<br>")
+        }
+        function time(hours,minutes,seconds)
+        {
+            document.write("Время ",hours,":",minutes,":",seconds,"<br>");
+        }
+        function toSeconds(hours,minutes,seconds)
+        {
+            minutes+=(hours*60);
+            return seconds+=(minutes*60);
+        }
+        function secondsToTime(seconds)
+        {
+            let minutes=0;
+            let hours=0;
+            while(seconds>59)
+            {
+                seconds-=60;
+                minutes++;
+            }
+            while(minutes>59)
+            {
+                minutes-=60;
+                hours++;
+            }
+            document.write("Время из секунд: ",hours,":",minutes,":",seconds,"<br>");
+        }
+        function difference(hours1,minutes1,seconds1,hours2,minutes2,seconds2)
+        {
+            secondsToTime(Math.abs(toSeconds(hours1,minutes1,seconds1)-toSeconds(hours2,minutes2,seconds2)));
+        }
+        document.write("Сравнение чисел: ",cmpr(5,10),"<br>");
+        document.write("Факториал: ",fact(5),"<br>");
+        document.write("Цифры в число: ",digits(1,4,9),"<br>");
+        document.write("Площадь: ",S(2),"<br>");
+        document.write("Совершенное число: ",isPerfect(6),"<br>");
+        perfectDiap(5,60);
+        time(10,59,12);
+        document.write("Часы, минуты в секунды: ",toSeconds(10,50,10),"<br>")
+        secondsToTime(39010);
+        difference(9,50,10,10,50,10);
+
+        
+    </script>
+</body>
+</html>
